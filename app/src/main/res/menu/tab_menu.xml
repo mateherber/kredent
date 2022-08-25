@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dashboardGraph"
+        android:icon="@drawable/home_app_logo"
+        android:title="@string/title_dashboard" />
+
+    <item
+        android:id="@+id/transactionsGraph"
+        android:icon="@drawable/receipt_long"
+        android:title="@string/title_transactions" />
+
+    <item
+        android:id="@+id/contactGraph"
+        android:icon="@drawable/contact_support"
+        android:title="@string/title_contact" />
+</menu>

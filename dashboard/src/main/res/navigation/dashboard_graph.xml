@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dashboardGraph"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="org.kredent.dashboard.ui.dashboard.DashboardFragment">
+        <action
+            android:id="@+id/toDetails"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/grow_fade_in"
+            app:exitAnim="@anim/shrink_fade_out"
+            app:popEnterAnim="@anim/grow_fade_in"
+            app:popExitAnim="@anim/shrink_fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="org.kredent.dashboard.ui.details.DetailsFragment">
+        <argument
+            android:name="detailsArgs"
+            app:argType="org.kredent.dashboard.navigation.details.DetailsArgs" />
+    </fragment>
+</navigation>

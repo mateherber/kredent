@@ -1,0 +1,36 @@
+plugins {
+    alias libs.plugins.android.library
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.kotlin.kapt
+}
+
+android {
+    compileSdk props.targetSdk
+
+    defaultConfig {
+        minSdk props.minSdk
+        targetSdk props.targetSdk
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion libs.versions.compose.compiler.get()
+    }
+}
+
+dependencies {
+    implementation libs.material
+    debugImplementation libs.compose.tooling
+    implementation libs.bundles.compose
+    implementation libs.coroutines
+    implementation libs.bundles.lifecycle
+}
+

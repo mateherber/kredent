@@ -1,0 +1,81 @@
+plugins {
+    alias libs.plugins.android.application
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.kotlin.kapt
+    alias libs.plugins.kotlin.parcelize
+    alias libs.plugins.navigation.safeargs
+    alias libs.plugins.hilt
+}
+
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
+
+hilt {
+    enableAggregatingTask = true
+}
+
+android {
+    namespace props.appId
+    compileSdk props.targetSdk
+
+    defaultConfig {
+        applicationId props.appId
+        minSdk props.minSdk
+        targetSdk props.targetSdk
+        versionCode props.versionCode
+        versionName props.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion libs.versions.compose.compiler.get()
+    }
+}
+
+dependencies {
+    implementation project(":core")
+    implementation project(":common")
+    implementation project(":designkit")
+    implementation project(":login")
+    implementation project(":transactions")
+    implementation project(":transfer")
+    implementation project(":dashboard")
+    implementation project(":contact")
+
+    implementation libs.activity
+    implementation libs.appcompat
+    implementation libs.bundles.compose
+    implementation libs.constraintlayout
+    implementation libs.core.ktx
+    implementation libs.datastore
+    implementation libs.kermit
+    implementation libs.fragment
+    implementation libs.hilt.core
+    implementation libs.hilt.android.navigation
+    implementation libs.material
+    implementation libs.navigation.ui
+    implementation libs.navigation.fragment
+    implementation libs.splashscreen
+
+    kapt libs.hilt.android.compiler
+    kapt libs.hilt.compiler
+}

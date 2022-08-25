@@ -1,0 +1,60 @@
+plugins {
+    alias libs.plugins.android.library
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.kotlin.kapt
+    alias libs.plugins.kotlin.parcelize
+    alias libs.plugins.navigation.safeargs
+    alias libs.plugins.hilt
+}
+
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
+
+hilt {
+    enableAggregatingTask = true
+}
+
+android {
+    compileSdk props.targetSdk
+
+    defaultConfig {
+        minSdk props.minSdk
+        targetSdk props.targetSdk
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion libs.versions.compose.compiler.get()
+    }
+}
+
+dependencies {
+    implementation project(":designkit")
+    implementation project(":core")
+    implementation project(":common")
+
+    implementation libs.appcompat
+    implementation libs.bundles.compose
+    implementation libs.core.ktx
+    implementation libs.fragment
+    implementation libs.hilt.core
+    implementation libs.hilt.android.navigation
+    implementation libs.material
+    implementation libs.navigation.ui
+    implementation libs.navigation.fragment
+    implementation libs.bundles.lifecycle
+
+    kapt libs.hilt.android.compiler
+    kapt libs.hilt.compiler
+}
+

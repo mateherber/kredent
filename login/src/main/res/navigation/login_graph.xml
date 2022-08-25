@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/loginGraph"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="org.kredent.login.ui.welcome.WelcomeFragment">
+        <action
+            android:id="@+id/toSecondLevelAuthentication"
+            app:destination="@id/secondLevelAuthenticationFragment"
+            app:enterAnim="@anim/grow_fade_in"
+            app:exitAnim="@anim/shrink_fade_out"
+            app:popEnterAnim="@anim/grow_fade_in"
+            app:popExitAnim="@anim/shrink_fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/secondLevelAuthenticationFragment"
+        android:name="org.kredent.login.ui.secondlevelauthentication.SecondLevelAuthenticationFragment" />
+
+</navigation>

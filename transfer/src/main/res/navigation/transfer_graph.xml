@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/transferGraph"
+    app:startDestination="@id/transferFormFragment">
+
+    <fragment
+        android:id="@+id/transferFormFragment"
+        android:name="org.kredent.transfer.ui.form.TransferFormFragment">
+        <action
+            android:id="@+id/toTransferAmount"
+            app:destination="@id/transferAmountFragment"
+            app:enterAnim="@anim/grow_fade_in"
+            app:exitAnim="@anim/shrink_fade_out"
+            app:popEnterAnim="@anim/grow_fade_in"
+            app:popExitAnim="@anim/shrink_fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/transferAmountFragment"
+        android:name="org.kredent.transfer.ui.amount.TransferAmountFragment">
+        <argument
+            android:name="transferAmountArgs"
+            app:argType="org.kredent.transfer.navigation.amount.TransferAmountArgs" />
+        <action
+            android:id="@+id/toTransferSummary"
+            app:destination="@id/transferSummaryFragment"
+            app:enterAnim="@anim/grow_fade_in"
+            app:exitAnim="@anim/shrink_fade_out"
+            app:popEnterAnim="@anim/grow_fade_in"
+            app:popExitAnim="@anim/shrink_fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/transferSummaryFragment"
+        android:name="org.kredent.transfer.ui.summary.TransferSummaryFragment">
+        <argument
+            android:name="transferSummaryArgs"
+            app:argType="org.kredent.transfer.navigation.summary.TransferSummaryArgs" />
+    </fragment>
+
+</navigation>

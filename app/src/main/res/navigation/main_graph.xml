@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainGraph">
+
+    <include app:graph="@navigation/login_graph" />
+    <include app:graph="@navigation/transfer_graph" />
+
+    <fragment
+        android:id="@+id/tabFragment"
+        android:name="org.kredent.app.ui.tab.TabFragment" />
+
+    <fragment
+        android:id="@+id/secondLevelAuthenticationFragment"
+        android:name="org.kredent.login.ui.secondlevelauthentication.SecondLevelAuthenticationFragment" />
+
+    <fragment
+        android:id="@+id/tokenFragment"
+        android:name="org.kredent.login.ui.token.TokenFragment" />
+
+    <action
+        android:id="@+id/toTab"
+        app:destination="@id/tabFragment"
+        app:enterAnim="@anim/grow_fade_in"
+        app:exitAnim="@anim/shrink_fade_out"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/grow_fade_in"
+        app:popExitAnim="@anim/shrink_fade_out"
+        app:popUpTo="@id/mainGraph"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/toLogin"
+        app:destination="@id/loginGraph"
+        app:enterAnim="@anim/grow_fade_in"
+        app:exitAnim="@anim/shrink_fade_out"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/grow_fade_in"
+        app:popExitAnim="@anim/shrink_fade_out"
+        app:popUpTo="@id/mainGraph"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/toToken"
+        app:destination="@id/tokenFragment"
+        app:enterAnim="@anim/grow_fade_in"
+        app:exitAnim="@anim/shrink_fade_out"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/grow_fade_in"
+        app:popExitAnim="@anim/shrink_fade_out"
+        app:popUpTo="@id/mainGraph"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/toSecondLevelAuthentication"
+        app:destination="@id/secondLevelAuthenticationFragment"
+        app:enterAnim="@anim/grow_fade_in"
+        app:exitAnim="@anim/shrink_fade_out"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/grow_fade_in"
+        app:popExitAnim="@anim/shrink_fade_out" />
+
+    <action
+        android:id="@+id/toTransfer"
+        app:destination="@id/transferGraph"
+        app:enterAnim="@anim/grow_fade_in"
+        app:exitAnim="@anim/shrink_fade_out"
+        app:launchSingleTop="true"
+        app:popEnterAnim="@anim/grow_fade_in"
+        app:popExitAnim="@anim/shrink_fade_out" />
+
+</navigation>
