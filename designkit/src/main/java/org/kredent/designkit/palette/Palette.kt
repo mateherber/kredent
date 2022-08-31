@@ -14,7 +14,6 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -29,7 +28,7 @@ import org.kredent.designkit.theme.spacing
 fun Palette(modifier: Modifier = Modifier, onClick: (String, ULong, ULong) -> Unit) {
     val colorScheme = MaterialTheme.colorScheme
     val items by remember(colorScheme) {
-        derivedStateOf {
+        mutableStateOf(
             listOf(
                 "primary" to (colorScheme.primary to colorScheme.onPrimary),
                 "onPrimary" to (colorScheme.onPrimary to colorScheme.primary),
@@ -57,8 +56,8 @@ fun Palette(modifier: Modifier = Modifier, onClick: (String, ULong, ULong) -> Un
                 "onSurfaceVariant" to (colorScheme.onSurfaceVariant to colorScheme.surfaceVariant),
                 "surfaceTint" to (colorScheme.surfaceTint to colorScheme.surface),
                 "outline" to (colorScheme.outline to colorScheme.onPrimary),
-
-        )}
+            )
+        )
     }
     LazyVerticalGrid(
         modifier = modifier,
